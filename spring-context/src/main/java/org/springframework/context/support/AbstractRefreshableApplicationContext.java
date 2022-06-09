@@ -126,7 +126,9 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 		try {
 			DefaultListableBeanFactory beanFactory = createBeanFactory();
 			beanFactory.setSerializationId(getId());
+			//TODO DLM 继承以后，使用的特别处理
 			customizeBeanFactory(beanFactory);
+			//TODO DLM 加载bean的入口
 			loadBeanDefinitions(beanFactory);
 			this.beanFactory = beanFactory;
 		}

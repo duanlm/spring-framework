@@ -513,7 +513,7 @@ public class BeanDefinitionParserDelegate {
 
 		try {
 			AbstractBeanDefinition bd = createBeanDefinition(className, parent);
-
+			//TODO DLM 放入bean定义的相关参数，为后面beandefinition实例化bean做准备
 			parseBeanDefinitionAttributes(ele, beanName, containingBean, bd);
 			bd.setDescription(DomUtils.getChildElementValueByTagName(ele, DESCRIPTION_ELEMENT));
 
@@ -522,7 +522,7 @@ public class BeanDefinitionParserDelegate {
 			parseReplacedMethodSubElements(ele, bd.getMethodOverrides());
 
 			parseConstructorArgElements(ele, bd);
-			parsePropertyElements(ele, bd);
+			parsePropertyElements(ele, bd);//TODO DLM 解析子类bean信息
 			parseQualifierElements(ele, bd);
 
 			bd.setResource(this.readerContext.getResource());
